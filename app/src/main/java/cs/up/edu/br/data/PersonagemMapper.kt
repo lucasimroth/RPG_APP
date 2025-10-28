@@ -56,6 +56,7 @@ object PersonagemMapper {
 
         // 4. Monta o Personagem
         return Personagem(
+            id = personagemComInventario.personagem.id,
             nome = entity.nome,
             raca = raca,
             classe = classe,
@@ -82,7 +83,7 @@ object PersonagemMapper {
     fun toEntity(personagem: Personagem, personagemId: Long = 0): PersonagemComInventario {
         // 1. Cria a Entidade do Personagem
         val personagemEntity = PersonagemEntity(
-            id = personagemId, // 0 para novo, >0 para update
+            id = personagem.id, // 0 para novo, >0 para update
             nome = personagem.nome,
             nivel = personagem.nivel,
             alinhamento = personagem.alinhamento,

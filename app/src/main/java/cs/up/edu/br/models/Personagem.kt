@@ -1,6 +1,7 @@
 package cs.up.edu.br.models
 
 class Personagem (
+    val id: Long = 0,
     val nome: String,
     var raca: Raca,
     var classe: Classe,

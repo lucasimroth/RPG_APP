@@ -6,7 +6,7 @@ import androidx.room.*
 interface PersonagemDao {
 
     /**
-     * Insere um personagem e seus equipamentos de forma transacional (tudo ou nada).
+     * Insere um personagem e seus equipamentos de forma transacional
      */
     @Transaction
     suspend fun insertPersonagemCompleto(personagemComInventario: PersonagemComInventario) {
@@ -47,5 +47,4 @@ interface PersonagemDao {
     @Delete
     suspend fun deletePersonagem(personagem: PersonagemEntity)
 
-    // Você pode adicionar Update, etc.
 }

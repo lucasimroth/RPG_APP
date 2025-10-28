@@ -44,6 +44,8 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -63,6 +65,8 @@ dependencies {
     ksp(libs.androidx.room.compiler) // Use 'ksp' e não 'kapt' ou 'annotationProcessor'
     implementation(libs.gson)
     androidTestImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.navigation.compose)
 
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
