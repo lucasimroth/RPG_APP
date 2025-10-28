@@ -1,3 +1,52 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# ==================================
+# Arquivos Gerados pelo Build (Build Generated Files)
+# ==================================
+**/build/
+*.apk
+*.aab
+*.ap_
+
+# ==================================
+# Arquivos Locais (Local Properties)
+# ==================================
+# Contém caminhos do SDK e chaves de API. NUNCA comite este arquivo.
+local.properties
+
+# ==================================
+# Arquivos do Android Studio / IntelliJ (.idea)
+# ==================================
+# Ignora a pasta inteira, exceto arquivos de "code style"
+.idea/*
+!.idea/codeStyles/
+*.iml
+.DS_Store
+
+# ==================================
+# Cache do Gradle
+# ==================================
+.gradle/
+build-cache/
+
+# ==================================
+# Arquivos Gerados (Generated Files)
+# ==================================
+# KSP/KAPT
+**/generated/
+/captures/
+
+# ==================================
+# Arquivos de Banco de Dados (Database Files)
+# ==================================
+# Arquivos do SQLite gerados em testes ou debug (como o que fizemos)
+*.db
+*.db-shm
+*.db-wal
+
+# ==================================
+# C++ / NDK
+# ==================================
+.externalNativeBuild/
+.cxx/
