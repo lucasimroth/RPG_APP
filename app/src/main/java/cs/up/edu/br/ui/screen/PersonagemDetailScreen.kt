@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cs.up.edu.br.models.Personagem
 import cs.up.edu.br.ui.viewmodel.PersonagemViewModel
@@ -21,7 +20,8 @@ import cs.up.edu.br.ui.viewmodel.PersonagemViewModel
 @Composable
 fun PersonagemDetailScreen(
     viewModel: PersonagemViewModel,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onStartBattle: (Long) -> Unit
 ) {
     // Coleta o personagem selecionado do ViewModel
     val personagem by viewModel.selectedPersonagem.collectAsStateWithLifecycle()
@@ -86,7 +86,19 @@ fun PersonagemDetailScreen(
                     InfoRow("JP Sabedoria", "+${p.jogadaDeProtecaoSabedoria}")
                 }
 
-                // (Adicionar Habilidades de Raça, Classe e Inventário aqui no futuro)
+                //Botão de Batalha
+                item {
+                    Button(
+                        onClick = {
+                            onStartBattle(p.id)
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.error)
+                    ) {
+                        Text("INICIAR BATALHA CONTRA ORC (Service)")
+                    }
+                    Divider(modifier = Modifier.padding(vertical = 8.dp))
+                }
             }
         } ?: run {
             // Se o personagem for nulo (carregando)

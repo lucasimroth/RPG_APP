@@ -8,6 +8,8 @@ sealed class Classe(
     abstract fun podeUsarArmadura(tipo: String): Boolean
     abstract fun obterJP(nivel: Int): Int
     abstract fun obterBA(nivel: Int): Int
+
+    abstract fun obterEquipamentoInicial(): MutableList<Equipamento>
 }
 
 class Guerreiro : Classe("Guerreiro", 10){
@@ -33,6 +35,12 @@ class Guerreiro : Classe("Guerreiro", 10){
             in 7..8 -> 10
             else -> 11
         }
+    }
+    override fun obterEquipamentoInicial(): MutableList<Equipamento> {
+        return mutableListOf(
+            Arma(nome = "Espada Longa", carga = 2, dano = "1d10"),
+            Armadura(nome = "Cota de Malha", carga = 4, bonusCA = 4)
+        )
     }
 }
 
@@ -61,6 +69,12 @@ class Mago : Classe("Mago", 4){
             in 5..9 -> 7
             else -> 10
         }
+    }
+    override fun obterEquipamentoInicial(): MutableList<Equipamento> {
+        return mutableListOf(
+            Arma(nome = "Adaga", carga = 0, dano = "1d6"),
+            ItemGeral(nome = "Grimório de Iniciação", carga = 1)
+        )
     }
 }
 
@@ -107,5 +121,11 @@ class Ladrao : Classe("Ladrao", 6){
             in 5..8 -> 8
             else -> 11
         }
+    }
+    override fun obterEquipamentoInicial(): MutableList<Equipamento> {
+        return mutableListOf(
+            Arma(nome = "Adaga", carga = 0, dano = "1d8"),
+            Armadura(nome = "Armadura de Couro", carga = 1, bonusCA = 2)
+        )
     }
 }

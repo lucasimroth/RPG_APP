@@ -13,13 +13,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-// Estado para a tela de lista (continua igual)
+// Estado para a tela de lista de personagens
 data class PersonagemListUiState(
     val personagens: List<Personagem> = emptyList(),
     val isLoading: Boolean = false
 )
 
-// NOVO: Estado para a tela de criação
+// Estado para a tela de criação de personagem
 data class CreatePersonagemUiState(
     val nome: String = "",
     val raca: String = "",
@@ -117,7 +117,7 @@ class PersonagemViewModel(private val repository: PersonagemRepository) : ViewMo
                 state.raca.isNotBlank() &&
                 state.classe.isNotBlank() &&
                 state.alinhamento.isNotBlank()
-        val atributosRolados = state.forca > 0 // Checa se pelo menos um atributo foi rolado
+        val atributosRolados = state.forca > 0
 
         _createState.update { it.copy(podeSalvar = camposBasicosPreenchidos && atributosRolados) }
     }
@@ -143,6 +143,8 @@ class PersonagemViewModel(private val repository: PersonagemRepository) : ViewMo
                 else -> Guerreiro()
             }
 
+            val inventarioInicial = classe.obterEquipamentoInicial()
+
             val novoPersonagem = Personagem(
                 nome = state.nome,
                 raca = raca,
@@ -150,7 +152,7 @@ class PersonagemViewModel(private val repository: PersonagemRepository) : ViewMo
                 atributos = atributos,
                 nivel = 1,
                 alinhamento = state.alinhamento,
-                inventario = mutableListOf()
+                inventario = inventarioInicial
             )
 
             repository.salvarPersonagem(novoPersonagem)

@@ -2,8 +2,8 @@ package cs.up.edu.br.models
 
 sealed class Raca (
     val nome: String,
-    val movimentoBase: Int, //Metros
-    val infravisao: Int //Metros
+    val movimentoBase: Int, //nao utiliado ainda
+    val infravisao: Int //nao utilizado ainda
 ){
     abstract fun obterHabilidadesRaciais(): List<String>
 }

@@ -1,8 +1,6 @@
 package cs.up.edu.br.data
 
 import androidx.room.*
-import cs.up.edu.br.data.EquipamentoEntity
-import cs.up.edu.br.data.PersonagemEntity
 import cs.up.edu.br.models.*
 
 // Classe de Relação que o Room usará para nos entregar o Personagem e seu Inventário
