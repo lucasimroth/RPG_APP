@@ -3,7 +3,6 @@ package cs.up.edu.br.data
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import cs.up.edu.br.models.Atributos
 
 @Entity(tableName = "personagem")
 data class PersonagemEntity(
